@@ -1,0 +1,12 @@
+* Implementation of typical numeric methods in =C++=
+
+  This repository is meant only for academic purpose. It shows my
+  implementations of some typical numeric methods in =C++=, that I wrote while
+  learning the language. These are the methods that I have implemented so far:
+
+  - **Root finding algorithms for 1D _real_ functions** ::
+
+    + *Bisection method* -- implemented in =01-root-finding/bisection.cpp= file.
+    + *Iterative method* -- implementated in =01-root-finding/iterative.cpp=
+      file. The implementation is very basic and it does not check any kind of
+      convergence of the g(x) = x function at the guess values of x. 
