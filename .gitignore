@@ -4,3 +4,5 @@
 *a.out
 pdf
 00-tipos-de-variables
+tests/*
+*.o
