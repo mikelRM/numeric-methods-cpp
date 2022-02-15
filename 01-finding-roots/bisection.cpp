@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include "solution.h"
-#include "bisection.h"
+#include "roots.h"
 
 using std::cout;
 using std::endl;
