@@ -4,7 +4,7 @@
   implementations of some typical numeric methods in =C++=, that I wrote while
   learning the language. These are the methods that I have implemented so far:
 
-  - **Root finding algorithms for 1D _real_ functions** ::
+  - *Root finding algorithms for 1D real functions* ::
 
     + *Bisection method* -- implemented in =01-root-finding/bisection.cpp= file.
     + *Iterative method* -- implementated in =01-root-finding/iterative.cpp=
