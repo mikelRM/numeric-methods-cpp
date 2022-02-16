@@ -3,18 +3,18 @@
 
 void Solution::print(bool end_line_jump)
 {
-  std::cout << "x = " << Solution::x << ",\t f(x) = " << Solution::fx
-	    << ",\t niter = " << Solution::n << std::endl;
+  std::cout << "x = " << m_x << ",\t f(x) = " << m_fx
+	    << ",\t niter = " << m_n << std::endl;
 
   if (end_line_jump) std::cout << std::endl;
 }
 
 // Added to the ostream, such that we can "std::cout" a Solution object.
 std::ostream& operator << (std::ostream &o, const Solution &sol) {
-  return o << "x = " << sol.x << ",\t f(x) = " << sol.fx << ",\t niter = " << sol.n;
+  return o << "x = " << sol.m_x << ",\t f(x) = " << sol.m_fx << ",\t niter = " << sol.m_n;
 }
 
 
-Solution::operator double() const { return x; }
-Solution::operator float() const { return (float)x;}
+Solution::operator double() const { return m_x; }
+Solution::operator float() const { return (float)m_x;}
 

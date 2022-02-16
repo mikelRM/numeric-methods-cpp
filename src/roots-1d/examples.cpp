@@ -18,6 +18,11 @@ double g (double x) {
   return sqrt(6*x + 8);
 }
 
+// First derivative of f(x):
+double df (double x) {
+  return 2*x - 6;
+}
+
 int main() {
   Solution sol;
   
@@ -25,43 +30,69 @@ int main() {
 
   // BISECTION METHOD /////////////////////////////////////////////////////////
   cout << endl << "========== BISECTION METHOD ==========" << endl;
+
   cout << "Initial guesses: x1 = -5, x2 = 5:" << endl;
   sol = bisect(f, -5., 5.);
-
-  sol.print();
   cout << sol << endl << endl;
   
   cout << "Initial guesses: x1 = -1, x2 = 5:" << endl;
   sol = bisect(f, -1., 10.);
-
-  sol.print();
   cout << sol << endl << endl;
 
   
-  // ITERATIVE METHOD  ////////////////////////////////////////////////////////
+  // ITERATIVE METHOD /////////////////////////////////////////////////////////
   cout << endl << "========== ITERATIVE METHOD ==========" << endl;
 
   cout << "Initial guess: x0 = -100" << endl;
   sol = iterative(f, g, -100);
-  cout << sol << endl;
+  cout << sol << endl << endl;
 
   cout << "Initial guess: x0 = -2" << endl;
   sol = iterative(f, g, -2);
-  cout << sol << endl;
+  cout << sol << endl << endl;
 
   sol = iterative(f, g, 0);
   cout << "Initial guess: x0 = 0" << endl;
-  cout << sol << endl;
+  cout << sol << endl << endl;
 
   sol = iterative(f, g, 7);
   cout << "Initial guess: x0 = 7" << endl;
-  cout << sol << endl;
+  cout << sol << endl << endl;
 
   sol = iterative(f, g, 10);
   cout << "Initial guess: x0 = 10" << endl;
-  cout << sol << endl;
+  cout << sol << endl << endl;
 
   sol = iterative(f, g, 50);
   cout << "Initial guess: x0 = 50" << endl;
-  cout << sol << endl;
+  cout << sol << endl << endl;
+
+
+  // NEWTON RAPHSON ///////////////////////////////////////////////////////////
+  cout << endl << "========== NEWTON-RAPHSON METHOD ==========" << endl;
+
+  sol = newton_raphson(f, df, -100.);
+  cout << "Initial guess: x0 = -100" << endl;
+  cout << sol << endl << endl;
+  
+  sol = newton_raphson(f, df, -10.);
+  cout << "Initial guess: x0 = -10" << endl;
+  cout << sol << endl << endl;
+  
+  sol = newton_raphson(f, df, -1.);
+  cout << "Initial guess: x0 = -1" << endl;
+  cout << sol << endl << endl;
+  
+  sol = newton_raphson(f, df, 1.);
+  cout << "Initial guess: x0 = 1" << endl;
+  cout << sol << endl << endl;
+  
+  sol = newton_raphson(f, df, 10.);
+  cout << "Initial guess: x0 = 10" << endl;
+  cout << sol << endl << endl;
+  
+  sol = newton_raphson(f, df, 100.);
+  cout << "Initial guess: x0 = 100" << endl;
+  cout << sol << endl << endl;
+
 }

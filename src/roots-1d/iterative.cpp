@@ -15,11 +15,11 @@ Solution iterative (double (*f)(double), double (*g)(double), double const x0,
   for (int n=1; n <= nmax; n++) {
     x2 = g(x1);
 
-    if (fabs(x2 - x1) < tol && fabs(f(x2)) < tol) return {x2, f(x2), n};
+    if (fabs(x2 - x1) < tol && fabs(f(x2)) < tol) return Solution(x2, f(x2), n);
 
     x1 = x2;
   }
   
   std::cout << "ERROR: after " << nmax << " iterations the root was not obtained." << std::endl;
-  return {NAN, NAN, nmax};  
+  return Solution(NAN, NAN, nmax);  
 }

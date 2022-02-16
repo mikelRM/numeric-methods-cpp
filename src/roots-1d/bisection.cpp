@@ -18,12 +18,12 @@ Solution bisect (double (*f)(double), double x1, double x2, double tol, int nmax
 
   if (tol <= 0) {
     cout << "ERROR: tol value must be positive" << endl;
-    return {NAN, NAN, 0};
+    return Solution(NAN, NAN, 0);
   }
   
   if (fx1 * fx2 > 0) {
     cout << "ERROR: the function has the same sign at both boundaries" << endl;
-    return {NAN, NAN, 0};
+    return Solution(NAN, NAN, 0);
   }
 
   for (int n=1; n<=nmax; n++) {
@@ -31,15 +31,15 @@ Solution bisect (double (*f)(double), double x1, double x2, double tol, int nmax
     fx3 = f(x3);
 
     if (fabs(fx1) < tol) {
-      return {x1, fx1, n};
+      return Solution(x1, fx1, n);
     }
 
     if (fabs(fx2) < tol) {
-      return {x2, fx2, n};
+      return Solution(x2, fx2, n);
     }
 
     if (fabs(fx3) < tol) {
-      return {x3, fx3, n};
+      return Solution(x3, fx3, n);
     }
 
     // Check where the crossing of the y=0 line happens
@@ -53,5 +53,5 @@ Solution bisect (double (*f)(double), double x1, double x2, double tol, int nmax
   }
   
   cout << "ERROR: after " << nmax << " iterations the root was not obtained." << endl;
-  return {NAN, NAN, nmax};
+  return Solution(NAN, NAN, nmax);
 }
