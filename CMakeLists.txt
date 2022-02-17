@@ -15,6 +15,7 @@ set (roots_examples_SOURCES
   ${roots_examples_SOURCE_DIR}/bisection.cpp
   ${roots_examples_SOURCE_DIR}/iterative.cpp
   ${roots_examples_SOURCE_DIR}/newton-raphson.cpp
+  ${roots_examples_SOURCE_DIR}/muller.cpp
   )
 
 add_executable(root-example ${roots_examples_SOURCES})

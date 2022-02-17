@@ -8,3 +8,4 @@ Solution iterative (double (*)(double), double (*)(double), double, double = 1e-
 
 Solution newton_raphson (double (*)(double), double (*)(double), double, double = 1e-8, int = 100);
 
+Solution muller (double (*)(double), double, double, double, double = 1e-8, int = 100);
