@@ -24,3 +24,22 @@ Solution newton_raphson (double (*f)(double), double (*df)(double), double const
   cout << "ERROR: after " << nmax << " iterations the root was not obtained." << endl;
   return Solution(NAN, NAN, nmax);  
 }
+
+
+CSolution newton_raphson (cdouble (*f)(cdouble), cdouble (*df)(cdouble), cdouble const x0,
+			  double const tol, int const nmax)
+{
+  cdouble x1 = x0, x2;
+
+  for (int n=1; n <= nmax; ++n) {
+    x2 = x1 - f(x1)/df(x1);
+
+    if (fabs(f(x2)) < tol)
+      return CSolution(x2, f(x2), n);
+    
+    x1 = x2;
+  }
+
+  cout << "C_ERROR: after " << nmax << " iterations the root was not obtained." << endl;
+  return CSolution(NAN, NAN, nmax);  
+}

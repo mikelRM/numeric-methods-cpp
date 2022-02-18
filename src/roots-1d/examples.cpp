@@ -27,8 +27,20 @@ double df (double x) {
   return 2*x - 6;
 }
 
+// Complex function with roots at z = +- i
+cdouble cf (cdouble z) {
+  return z*z + 1.;
+}
+
+//First derivative of cf(z)
+cdouble cdf (cdouble z) {
+  return 2.*z;
+}
+
+
 int main() {
   Solution sol;
+  CSolution csol;
   
   cout << "In this program I find roots for f(x) = x² - 6x - 8." << endl << endl;
 
@@ -117,6 +129,26 @@ int main() {
 
   cout << "The Muller method involves square roots --> it can cause problems" << endl
        << "if we don't care about complex numbers." << endl << endl;
-										     
+
+
+  // COMPLEX FUNCTIONS ////////////////////////////////////////////////////////
+  cout << endl << "========== COMPLEX FUNCTIONS (NEWTON) ==========" << endl;
+
+  cout << "Initial guess: z0 = 0.4 + 1j" << endl;
+  csol = newton_raphson(cf, cdf, 0.4 + I);
+  cout << csol << endl << endl;
+
+  cout << "Initial guess: z0 = -8.3 - 10j" << endl;
+  csol = newton_raphson(cf, cdf, -8.3 - I*10.);
+  cout << csol << endl << endl;
+
+  cout << "Initial guess: z0 = 8.4 - 3.2j" << endl;
+  csol = newton_raphson(cf, cdf, 8.4 - I*3.2);
+  cout << csol << endl << endl;
+
+  cout << "Initial guess: z0 = -9.3 + 5.4j" << endl;
+  csol = newton_raphson(cf, cdf, -9.3 + I*5.4);
+  cout << csol << endl << endl;  
+  
 
 }
